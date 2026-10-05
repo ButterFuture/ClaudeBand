@@ -1,0 +1,61 @@
+{
+  "name": "claude-band",
+  "version": "0.1.0",
+  "description": "ClaudeBand: the prompt-cache clock with 5-hour, weekly and context gauges plus spend, above the prompt and in a pane (terminal, desktop, phone, VS Code).",
+  "author": {
+    "name": "ButterFuture",
+    "email": "ButterFuture@proton.me",
+    "url": "https://github.com/ButterFuture"
+  },
+  "homepage": "https://github.com/ButterFuture/ClaudeBand",
+  "repository": "https://github.com/ButterFuture/ClaudeBand",
+  "license": "AGPL-3.0-only",
+  "keywords": [
+    "prompt-cache",
+    "cache",
+    "rate-limit",
+    "usage",
+    "cost",
+    "context",
+    "status",
+    "i18n"
+  ],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "language": {
+      "type": "string",
+      "title": "Language / 语言",
+      "description": "auto follows Claude Code's language setting, then LANG (Chinese when neither says); a language code pins one. Or run /cb lang <code>. auto 先看 Claude Code 的 language 设置，再看 LANG，都没有时用中文；也可以用 /cb lang <语言> 切换。",
+      "default": "auto",
+      "options": [
+        "auto",
+        "zh",
+        "en"
+      ]
+    },
+    "warnAt": {
+      "type": "number",
+      "title": "Yellow at % used / 标黄阈值（已用 %）",
+      "description": "5h, weekly and context turn yellow at this percent used. 5 小时、周限和上下文用到这个百分比时标黄。",
+      "default": 80,
+      "min": 1,
+      "max": 100
+    },
+    "alertAt": {
+      "type": "number",
+      "title": "Red at % used / 标红阈值（已用 %）",
+      "description": "5h, weekly and context turn red at this percent used. 用到这个百分比时标红。",
+      "default": 90,
+      "min": 1,
+      "max": 100
+    },
+    "paceMargin": {
+      "type": "number",
+      "title": "Ahead of pace, points / 超前预期多少点标黄",
+      "description": "A 5h or weekly window turns yellow early when its use runs this many points past the pace tick; 0 turns it off. 5 小时或周限比预期竖线超前这么多个百分点时提前标黄，0 表示关闭。",
+      "default": 10,
+      "min": 0,
+      "max": 100
+    }
+  }
+}

@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+*.log
+
+# GitHub credentials for scripts/publish-github.sh
+.release.env
